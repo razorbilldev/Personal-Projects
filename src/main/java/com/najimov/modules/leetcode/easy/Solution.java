@@ -1,15 +1,13 @@
 package com.najimov.modules.leetcode.easy;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Solution {
     public static void main(String[] args) {
-        int[] nums1 = {1,2,3};
-        int[] nums2 = {2,4,6};
-        System.out.println(findDifference(nums1, nums2));
+        int[] nums1 = {1, 2, 3};
+        int[] nums2 = {2, 4, 6};
+        int[] arr = {2, 2, 1, 1, 3};
+        System.out.println(uniqueOccurrences(arr));
     }
 
     public static double findMaxAverage(int[] nums, int k) {
@@ -31,25 +29,31 @@ public class Solution {
     }
 
     public static List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
-        List<List<Integer>> result = new ArrayList<>();
         Set<Integer> set1 = new HashSet<>();
         Set<Integer> set2 = new HashSet<>();
-        for (Integer num1 : nums1) {
-            for (Integer num2 : nums2) {
-                if (!num1.equals(num2)) {
-                    set1.add(num1);
-                }
-            }
-        }
-        for (Integer num2 : nums2) {
-            for (Integer num1 : nums1) {
-                if (!num2.equals(num1)) {
-                    set2.add(num2);
-                }
-            }
-        }
-        result.add(new ArrayList<>(set1));
-        result.add(new ArrayList<>(set2));
+        for (Integer n : nums1) set1.add(n);
+        for (Integer n : nums2) set2.add(n);
+        Set<Integer> onlySet1 = new HashSet<>(set1);
+        Set<Integer> onlySet2 = new HashSet<>(set2);
+        onlySet1.removeAll(set2);
+        onlySet2.removeAll(set1);
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(new ArrayList<>(onlySet1));
+        result.add(new ArrayList<>(onlySet2));
         return result;
+    }
+
+    public static boolean uniqueOccurrences(int[] arr) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (Integer num : arr) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        Set<Integer> set = new HashSet<>();
+        for (Integer num : map.values()) {
+            if (!set.add(num)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
