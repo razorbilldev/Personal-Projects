@@ -1,4 +1,4 @@
-package com.najimov.modules.solid.singleton;
+package com.najimov.modules.solid.singleton.user;
 
 public class UserService {
     private final UserValidation validation;
