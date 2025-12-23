@@ -1,6 +1,4 @@
-package com.najimov.modules.solid.interfacesegregation.valid;
-
-import com.najimov.modules.solid.interfacesegregation.Worker;
+package com.najimov.modules.solid.interfacesegregation.worker.valid;
 
 public class HumanWorker implements Workable, Eatable {
     @Override

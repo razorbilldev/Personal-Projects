@@ -1,4 +1,4 @@
-package com.najimov.modules.solid.interfacesegregation;
+package com.najimov.modules.solid.interfacesegregation.worker;
 
 public class RobotWorker implements Worker{
     @Override

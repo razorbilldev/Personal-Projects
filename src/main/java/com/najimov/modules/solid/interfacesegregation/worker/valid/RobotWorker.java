@@ -1,4 +1,4 @@
-package com.najimov.modules.solid.interfacesegregation.valid;
+package com.najimov.modules.solid.interfacesegregation.worker.valid;
 
 public class RobotWorker implements Workable {
     @Override
