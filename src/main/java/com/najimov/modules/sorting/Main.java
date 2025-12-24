@@ -40,7 +40,7 @@ public class Main {
     private static void selectionSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int midIndex = i;
-            for (int j = i+1; j < array.length; j++) {
+            for (int j = i + 1; j < array.length; j++) {
                 if (array[j] < array[midIndex]) {
                     midIndex = j;
                 }
@@ -50,6 +50,26 @@ public class Main {
                 array[i] = array[midIndex];
                 array[midIndex] = temp;
             }
+        }
+    }
+
+    /*
+        Insertion Sort: Takes the 2nd value from unsorted array, the 1st value is considered as in the sorted part.
+                        Move the value into the correct position at the sorted array, first shift all larger values by 1 position to the right and insert the value.
+                        Go through the unsorted part of the array again as many times as there are values.
+        Time Complexity: O(n^2) - worst case, when we take one value from unsorted array we need to go through the sorted array to find the correct position to insert, and we need to do this operation for each value from unsorted array part.
+        Space Complexity: O(1) - we just need a couple of variables, there is no need to create separate array.
+     */
+    private static void insertionSort(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            int key = array[i];
+            int j = i - 1;
+
+            while (j >= 0 && array[j] > key) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = key;
         }
     }
 }
