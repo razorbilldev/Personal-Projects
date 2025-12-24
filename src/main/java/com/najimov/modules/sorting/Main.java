@@ -5,6 +5,7 @@ public class Main {
         int[] array = {9, 1, 8, 2, 7, 3, 6, 4, 5};
         bubbleSort(array);
         selectionSort(array);
+        insertionSort(array);
         for (int i : array) {
             System.out.print(i + " ");
         }
